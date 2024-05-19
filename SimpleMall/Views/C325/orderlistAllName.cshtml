@@ -1,0 +1,46 @@
+﻿@model IEnumerable<HomeWork325.Models.custom>
+
+@{
+    ViewBag.Title = "orderlistAllName";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>依帳號統計</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cPasswd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cAccount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cPasswd)
+        </td>
+
+    </tr>
+}
+
+</table>

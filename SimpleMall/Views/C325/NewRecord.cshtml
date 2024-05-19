@@ -1,0 +1,42 @@
+﻿@model HomeWork325.Models.custom
+@{
+    ViewBag.Title = "NewRecord";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container ">
+
+
+    <!--框線-->
+    @using (Html.BeginForm()) //預設回傳給自己
+    {
+        <div class="row justify-content-center">
+            <div class="col-6">
+            <div class="input-group mt-2 ">
+                @Html.LabelFor(model => model.cName, new { @class = "input-group-text text-danger" })
+                <!--class要另外新增--><!--label是自己打，labelfor是原本就有的-->
+                @Html.EditorFor(model => model.cName, new { htmlAttributes = new { @class = "form-control" } })
+                <!--另外新增html樣式，再新增class-->
+                @Html.ValidationMessageFor(model => model.cName)
+            </div>
+            <div class="input-group mt-2 ">
+                @Html.LabelFor(model => model.cAccount, new { @class = "input-group-text text-danger" })
+                @Html.EditorFor(model => model.cAccount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cAccount)
+            </div>
+            <div class="input-group mt-2 mb-2">
+                @Html.LabelFor(model => model.cPasswd, new { @class = "input-group-text text-danger" })
+                @Html.EditorFor(model => model.cPasswd, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cPasswd)
+            </div>
+            <input type="submit" value="新增" class="btn btn-primary"/>
+            </div>
+        </div>
+}
+
+
+    </div>
+
+

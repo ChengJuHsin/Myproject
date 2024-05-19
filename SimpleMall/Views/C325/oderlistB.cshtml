@@ -1,0 +1,33 @@
+﻿@model IEnumerable<HomeWork325.Models.OrderList>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    
+</head>
+<body>
+    @{ 
+        int sum = 0;
+    }
+    @foreach (var item in Model)
+    {
+        if(ViewBag.select == item.cAccount)
+        {
+            sum += item.pAmount;
+        }
+
+
+    }
+    <h2>帳號:@ViewBag.select</h2>
+    <h2>總計:@sum </h2>
+
+    <h2>帳號:@ViewBag.select 總計:@sum </h2>
+
+</body>
+</html>
