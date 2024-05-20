@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>11010325 demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>
+    	*{
+    		margin: 0;
+    		padding: 0;
+    		box-sizing: border-box;
+    	}
+    	
+    	th,td{
+			border: 1px solid black;
+			padding: 5px;
+		}
+    	tbody tr:nth-child(odd){
+    		background-color: #566;
+    		color: #fff;
+    	}
+    	tbody tr:nth-child(odd):hover{
+    		background-color: #acd;
+			color: white;
+    		
+    	}
+    	tbody tr:nth-child(even):hover{
+    		background-color: #cbf8;
+    		
+    	}
+    	tbody tr:hover{
+    		cursor: pointer;
+    	}
+    	.banner{
+    		background: rgb(108,104,176);
+			background: linear-gradient(90deg, rgba(108,104,176,0.613390928725702) 0%, rgba(167,167,236,0.5896328293736501) 35%, rgba(90,201,233,0.593952483801296) 100%),url("https://picsum.photos/2000/800?random=1");
+			background-size: cover;
+			background-position: center;
+    		color: white;
+    	}
+    	.carousel-inner{
+			width: 100%;
+			height: 400px;
+
+		}
+		.carousel-item{
+			width: 100%;
+			height: 100vh;
+		}
+		.carousel-item img,.carousel-item video{
+			width: 100%;
+			height: 400px;
+			object-fit: cover;
+		}
+
+		.wrap{
+				text-align: justify;
+				margin-top: 60px;
+			}
+			.wrap section{
+				margin-top: -60px;
+				padding-top: 60px;
+			}
+			.nav-item .nav-link.active{
+				background-color: ghostwhite;
+				color: black;
+			}
+			.a{
+			background-color: #769;
+			color: white;
+			
+		}
+		.b{
+			background-color: #679;
+			color: white;
+		}
+		.menu li{
+			display: inline-block;
+			list-style: none;
+		}
+		.menu li .link{
+			display: block;
+			width: 100px;
+			height: 40px;
+			border-radius: 5px;
+			text-align: center;
+			line-height: 40px;
+			background-color: #9bc;
+			color: white;
+			text-decoration: none;
+		}
+		.menu li .link:hover{
+			background-color: #cef;
+			color: black;
+		}
+		.menu li .link.active{
+			background-color: #bae;
+			color: white;
+			pointer-events: none;
+		}
+		.content{
+			display: none;
+			padding: 20px;
+		}
+		.title{
+			width: 200px;
+			background-color: black;
+			color: white;
+			font-size: 20px;
+			border-bottom: 1px solid #bae;
+			margin-bottom: 5px;
+		}
+		.a12{
+			display: flex;
+		}
+		#btn02{
+			width: 100px;
+			height: 100px;
+			border-radius: 10px;
+			background: url('mcat.jpg');
+			background-size: cover;
+			cursor: pointer;
+			border-style: none;
+			margin-left: 10px;
+		}
+		.bg{
+			width: 100%;
+			height: 100vh;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-color: #88b6;
+			display: none;
+		}
+		.contents{
+			width: 550px;
+			height: 400px;
+			border: 3px solid white;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+		.contents .imgbox{
+			width: 100%;
+			height: 100%;
+		}
+		.contents .imgbox img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		.contents .colse{
+			width: 30px;
+			height: 30px;
+			border-radius: 50%; 
+			border: 2px solid #fff;
+			background-color: #0009;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-family: sans-serif;
+			font-size: 25px;
+			font-weight: bolder;
+			transform: translate(528px,-410px);
+			cursor: pointer;
+		}
+
+    </style>
+  </head>
+  <body>
+<!-- navbar -->
+	<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top"data-bs-theme="dark">
+  	<div class="container-fluid">
+    <a class="navbar-brand" href="#">11010325</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="#">首頁</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">關於我</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            語言
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">日文</a></li>
+            <li><a class="dropdown-item" href="#">英文</a></li>           
+            <li><a class="dropdown-item" href="#">國文</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">隱藏</a>
+        </li>
+      </ul>
+      	<ul class="navbar-nav me-3 mb-2 mb-lg-0">
+        	<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="nav-link btn active" aria-current="page" href="#s01">Section 1</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link btn" href="#s02">Section 2</a>
+						</li>
+					</ul>
+					<form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-info" type="submit">Search</button>
+      </form>
+				</div>
+    	</div>
+  	</div>
+	</nav>
+<!-- 橫幅看板 -->
+	<div class="banner p-5">
+		<div class="container p-5">
+			<!-- 內容區 -->
+			<h2 class="display-2">11010325</h2>
+			<div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor, sed.</div>
+			<a href="#" class="btn btn-primary">Read more</a>
+			</div>
+		</div>
+<!-- 麵包屑 -->
+	<div class="container">
+		<nav aria-label="breadcrumb">
+  	<ol class="breadcrumb">
+    	<li class="breadcrumb-item"><a href="#">首頁</a></li>
+    	<li class="breadcrumb-item"><a href="#">關於我</a></li>
+    	<li class="breadcrumb-item active" aria-current="page">麵包屑</li>
+ 	 	</ol>
+		</nav>
+	</div>
+<!-- 側邊選單-->
+	<div class="container">
+		<div class="row">
+		<div class="col-12 col-md-3 col-xl-2 mb-3  ">
+		<ul class="list-group">
+  		<li class="list-group-item active" aria-current="true">An active item</li>
+  		<li class="list-group-item">A second item</li>
+  		<li class="list-group-item">A third item</li>
+  		<li class="list-group-item">A fourth item</li>
+  		<li class="list-group-item">And a fifth one</li>
+		</ul>
+		
+		<!-- 隱藏式側邊選單 -->	
+		<a class="btn btn-outline-primary mt-5" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  		隱藏側邊選單
+		</a>
+
+	<div class="offcanvas offcanvas-end" data-bs-theme="dark" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+ 	 <div class="offcanvas-header">
+    	<h4 class="offcanvas-title" id="offcanvasExampleLabel">11010325</h4>
+    	<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  	</div>
+  	<div class="offcanvas-body">
+  		<div class="dropdown mt-3 mb-2">
+     	 <button class="btn btn-outline-info dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        下拉式選單
+     	 </button>
+      	<ul class="dropdown-menu">
+        	<li><a class="dropdown-item" href="#">Action</a></li>
+        	<li><a class="dropdown-item" href="#">Another action</a></li>
+        	<li><a class="dropdown-item" href="#">Something else here</a></li>
+     	 </ul>
+   	 </div>
+    	<div class="card mb-2" style="width: 18rem;">
+					<img src="https://picsum.photos/350/200?random=1" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Products</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Buy now!</a>
+					</div>
+				</div>
+				<div class="card" style="width: 18rem;">
+					<img src="https://picsum.photos/350/200?random=2" class="card-img-top" alt="...">
+					<div class="card-body">
+						<h5 class="card-title">Products</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Buy now!</a>
+					</div>
+				</div>
+   	 </div>
+ 	 </div>
+	</div>
+<!-- 表單 -->
+		<div class="col-12 col-md-9 col-xl-10 mb-9  ">
+   		<table class="table container mt-2">
+			<thead style="background-color: #79b9;"> 
+			<tr>
+				<th>編號</th>
+				<th>標題</th>
+				<th>說明</th>
+				<th>備註</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td>01</td>
+				<td>Lorem, ipsum, dolor.</td>
+				<td>Rem, impedit, non.</td>
+				<td>Sed, perspiciatis laudantium?</td>
+			</tr>
+			<tr>
+				<td>02</td>
+				<td>Lorem, ipsum, dolor.</td>
+				<td colspan="2">Rem, est, ea.</td>
+			<!-- <td>Ducimus, aliquid, vel.</td> -->
+		</tr>
+		<tr>
+			<td>03</td>
+			<td>Lorem, ipsum dolor.</td>
+			<td>Aut, quos eaque.</td>
+			<td>Quisquam voluptates, ab!</td>
+		</tr>
+		<tr>
+			<td>04</td>
+			<td>Lorem, ipsum, dolor.</td>
+			<td>Reprehenderit, sit neque.</td>
+			<td>Corporis, ipsa obcaecati.</td>
+		</tr>
+		<tr>
+			<td>05</td>
+			<td>Lorem, ipsum, dolor.</td>
+			<td>Quod, temporibus fugiat.</td>
+			<td>Provident, aspernatur, ipsam.</td>
+		</tr>
+		<tr>
+			<td>06</td>
+			<td>Lorem, ipsum, dolor.</td>
+			<td>Autem, vero, fuga!</td>
+			<td>Optio, aspernatur, architecto.</td>
+		</tr>
+		
+		</tbody>
+	</table>
+		</div>
+		</div>
+	</div>
+<!-- 滾動監測+換色+slideToggle+光箱-->
+	<div class="wrap container"data-bs-spy="scroll" data-bs-target="#myTopNav">
+		<div class="a12">
+		<button id="btn01" class="mb-5">按我換色</button>
+		<ul class="menu">
+		<!-- li*5>a.link#link$$[herf=#]{link$$} -->
+		<li><a href="#" class="link active" id="link01">link01</a></li>
+		<li><a href="#" class="link" id="link02">link02</a></li>
+		<li><a href="#" class="link" id="link03">link03</a></li>
+		<li><a href="#" class="link" id="link04">link04</a></li>
+		<li><a href="#" class="link" id="link05">link05</a></li>
+	</ul>
+		<button id="btn02"></button>
+		<div class="bg">
+			<div class="contents">
+				<div class="imgbox">
+					<img src="mcat.jpg" alt="">
+				</div>
+				<div class="colse">X</div>
+			</div>
+		</div>
+	</div>
+			<section id="s01">
+				<h1>Section 01</h1>
+				<p class="a">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae minus nemo quae aliquam, accusamus modi hic, consectetur earum fugiat. Quam veritatis, accusamus excepturi quod aperiam cum voluptate eaque quos deserunt, facilis laudantium iure voluptatem sit dolore. Quos accusantium, voluptatem eligendi tempora quidem hic debitis cupiditate ililis doloribus ratione suscipit, numquam delectus? Iusto, dolorem ducimus a suscipit maxime odio. Quos itaque ipsa nam, modi accusamus quisquam error, consequatur, ex iste adipisci cumque, illum veritatisaxime dolor quos, molestiae laborum natus nobis officiis modi quod, voluptates incidunt eos sivoluptatum dicta voluptatem debitis. Distinctio, eveniet modi temporibus ex iusto ullam doloribus porro deserune exercitaaxime dolor quos, molestiae laborum natus nobis officiis modi quod, voluptates incidunt eos sivoluptatum dicta voluptatem debitis. Distinctio, eveniet modi temporibus ex iusto ullam doloribus porro deserune exercita.</p>
+				
+			</section>
+			<section id="s02">
+				<h1>Section 02</h1>
+				<p class="a">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam temporibus dicta, sit! Adipisci officia fuga voluptatibus ducimus soluta libero, voluptate doloremque odio deserunt. Maxime dolor quos, molestiae laborum natus nobis officiis modi quod, voluptates incidunt eos sivoluptatum dicta voluptatem debitis. Distinctio, eveniet modi temporibus ex iusto ullam doloribus porro deserune exercitationem nostrum cum esse mollitia magnam, natus ipsum dignissimos ducimus quaerat, quis? Doloribus molestias recusandae vitae sunt perferendis cupiditate, minus ad ataxime dolor quos, molestiae laborum natus nobis officiis modi quod, voluptates incidunt eos sivoluptatum dicta voluptatem debitis. Distinctio, eveniet modi temporibus ex iusto ullam doloribus porro deserune exercitaaxime dolor quos, molestiae laborum natus nobis officiis modi quod, voluptates incidunt eos sivoluptatum dicta voluptatem debitis. Distinctio, eveniet modi temporibus ex iusto ullam doloribus porro deserune exercita.</p>
+			</section>
+		<!-- slideToggle -->
+		<div class="title">title01</div>
+		<div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minima alias incidunt ad expedita quidem inventore? Asperiores odio aperiam soluta necessitatibus officia adipisci quia repudiandae. Beatae atque asperiores libero nobis?</div>
+		<div class="title">title02</div>
+		<div class="content">Laudantium nihil rem fugiat corrupti minima quia magni dignissimos earum veritatis dolorem delectus quidem voluptates sequi enim aspernatur, vitae iusto harum maxime beatae incidunt voluptate velit doloremque? Voluptatum, blanditiis, commodi!</div>
+		</div>
+		
+<!-- 幻燈片 -->
+	<div class="container-fluid">
+	<div id="carouselExampleCaptions" class="carousel slide  position-relative"data-bs-ride="carousel">
+		<!-- 下方換頁 -->
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+			</div>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="https://picsum.photos/id/40/2000/1000" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="https://picsum.photos/id/237/2000/1000" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="https://picsum.photos/id/275/2000/1000" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+					</div>
+				</div>
+				<div class="carousel-item">
+					<video src="rain.mp4" class="d-block w-100" autoplay loop muted>
+					<div class="carousel-caption d-none d-md-block">
+					</div>
+				</div>
+			</div>
+			<div class="text-white text-center position-absolute top-50 start-50 translate-middle d-none d-lg-block">
+				<h2 class="display-2">11010325 Inc.</h2>
+				<div>Some representative placeholder content for the first slide.</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+	</div>
+<!-- 頁尾區 -->
+	<div class="container-fluid p-3 bg-dark text-white text-center">
+		<h3>11010325</h3>
+		<div>copyright&copy;2023 Lorem ipsum dolor sit amet.</div>
+	</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+	<script>
+		$(function(){
+			$('#btn01').on('click',function(){
+				$('h1').toggleClass('a')
+				$('p').toggleClass('b')
+			})
+			$('.link').on('click',function(){
+				$('.link').removeClass('active')
+				$(this).addClass('active')
+			})
+			$('.title').on('click',function(){
+				$(this).next().slideToggle()
+			})
+			$('#btn02').on('click',function(){
+				$('.bg').fadeIn()
+			})
+			$('.colse').on('click',function(){
+				$('.bg').fadeOut() //點x關掉
+			})
+			$('.bg').on('click',function(){
+				$('.bg').fadeOut() //點旁邊也會關掉
+			})
+
+
+		})
+	</script>
+
+  </body>
+</html>
